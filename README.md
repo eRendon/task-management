@@ -2,26 +2,81 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.14.
 
-## Development server
+Ejecuta `npm install`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Servidor de Desarrollo
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Para iniciar un servidor de desarrollo, ejecuta el siguiente comando:
+`ng serve`
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Navega a `http://localhost:4200/` para ver la aplicación en funcionamiento. La aplicación se recargará automáticamente si cambias alguno de los archivos fuente.
 
-## Running unit tests
+## Generación de Código
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Para generar nuevos componentes, directivas, tuberías, servicios, clases, guards, interfaces o módulos, puedes utilizar el siguiente comando:
+`ng generate component component-name`
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+También puedes usar otros comandos como `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Further help
+## Construcción
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Para construir el proyecto, ejecuta el siguiente comando:
+`ng build`
+
+
+Los artefactos de la construcción se almacenarán en el directorio `dist/`.
+
+## Ejecución de Pruebas Unitarias
+
+Para ejecutar las pruebas unitarias a través de [Karma](https://karma-runner.github.io), utiliza el siguiente comando:
+`ng test`
+
+
+## Ejecución de Pruebas de Extremo a Extremo
+
+Para ejecutar las pruebas de extremo a extremo, utiliza el siguiente comando:
+`ng e2e`
+
+
+## Ayuda Adicional
+
+Para obtener más ayuda sobre Angular CLI, utiliza el siguiente comando:
+`ng help`
+
+
+O visita la página [Angular CLI Overview and Command Reference](https://angular.io/cli).
+
+## Dependencias
+
+- **@angular/animations:** ^16.2.0
+- **@angular/common:** ^16.2.0
+- **@angular/compiler:** ^16.2.0
+- **@angular/core:** ^16.2.0
+- **@angular/forms:** ^16.2.0
+- **@angular/platform-browser:** ^16.2.0
+- **@angular/platform-browser-dynamic:** ^16.2.0
+- **@angular/router:** ^16.2.0
+- **rxjs:** ~7.8.0
+- **tslib:** ^2.3.0
+- **zone.js:** ~0.13.0
+
+## Dependencias de Desarrollo
+
+- **@angular-devkit/build-angular:** ^16.2.14
+- **@angular/cli:** ^16.2.14
+- **@angular/compiler-cli:** ^16.2.0
+- **@types/jasmine:** ~4.3.0
+- **autoprefixer:** ^10.4.19
+- **jasmine-core:** ~4.6.0
+- **karma:** ~6.4.0
+- **karma-chrome-launcher:** ~3.2.0
+- **karma-coverage:** ~2.2.0
+- **karma-jasmine:** ~5.1.0
+- **karma-jasmine-html-reporter:** ~2.1.0
+- **postcss:** ^8.4.38
+- **tailwindcss:** ^3.4.4
+- **typescript:** ~5.1.3
+
