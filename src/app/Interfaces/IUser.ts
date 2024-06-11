@@ -1,17 +1,17 @@
 export interface IUser {
-  id:	string
-  userName:	string
-  normalizedUserName:	string
-  email:	string
-  normalizedEmail:	string
-  emailConfirmed:	boolean
-  passwordHash:	string
-  securityStamp:	string
-  concurrencyStamp:	string
-  phoneNumber:	string
-  phoneNumberConfirmed:	boolean
-  twoFactorEnabled:	boolean
-  lockoutEnd:	string
-  lockoutEnabled:	boolean
-  accessFailedCount: number
+  accessFailedCount?: number
+  concurrencyStamp?: string
+  email: string
+  emailConfirmed: boolean
+  id: string
+  lockoutEnabled?: boolean
+  lockoutEnd?: null
+  normalizedEmail?: string
+  normalizedUserName?: string
+  passwordHash?: string
+  phoneNumber: string
+  phoneNumberConfirmed: boolean
+  securityStamp?: string
+  twoFactorEnabled?: boolean
+  userName: string
 }

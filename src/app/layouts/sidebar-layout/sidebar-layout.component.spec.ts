@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SidebarLayoutComponent } from './sidebar-layout.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing'
 
 describe('SidebarLayoutComponent', () => {
   let component: SidebarLayoutComponent;
@@ -8,7 +9,8 @@ describe('SidebarLayoutComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SidebarLayoutComponent]
+      declarations: [SidebarLayoutComponent],
+      imports: [HttpClientTestingModule]
     });
     fixture = TestBed.createComponent(SidebarLayoutComponent);
     component = fixture.componentInstance;

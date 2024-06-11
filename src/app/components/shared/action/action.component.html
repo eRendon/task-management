@@ -1,0 +1,10 @@
+<div>
+  <div>
+    <h1>{{ data.title }}</h1>
+    <p class="text-justify py-4">{{ data.message }}</p>
+  </div>
+  <div class="flex justify-end">
+    <app-button styles="bg-gray-900" (click)="onSelectAction(false)" label="No"></app-button>
+    <app-button styles="bg-gray-900" (click)="onSelectAction(true)" label="Yes"></app-button>
+  </div>
+</div>

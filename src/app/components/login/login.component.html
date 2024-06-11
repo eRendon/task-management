@@ -1,33 +1,59 @@
 <div class="center-wrap">
   <div class="section text-center">
-    <h4 class="mb-4 pb-3">
+    <h4 class="mb-4 pb-3 text-white">
       Log In
     </h4>
-    <div class="form-group">
-      <input type="email"
-             name="logemail"
-             class="form-style"
-             placeholder="Your Email"
-             id="logemail"
-             autocomplete="off">
-      <i class="input-icon uil uil-at"></i>
-    </div>
-    <div class="form-group mt-2">
-      <input type="password"
-             name="logpass"
-             class="form-style"
-             placeholder="Your Password"
-             id="logpass"
-             autocomplete="off">
-      <i class="input-icon uil uil-lock-alt"></i>
-    </div>
-    <a href="#" class="btn mt-4">
-      submit
-    </a>
-    <p class="mb-0 mt-4 text-center">
-      <a href="#0" class="link">
-        Forgot your password?
-      </a>
-    </p>
+    <form [formGroup]="loginForm" (submit)="login()" class="grid grid-cols-1 lg:grid-cols-2 gap-3">
+      <div class="form-group col-span-2 sm:col-auto">
+        <input type="email"
+               name="logemail"
+               class="form-style"
+               formControlName="email"
+               placeholder="Your Email"
+               id="logemail"
+               autocomplete="off">
+        <i class="input-icon uil uil-at"></i>
+        <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          Nombre de usuario es requerido.
+        </div>
+      </div>
+      <div class="form-group mt-2 col-span-2 sm:col-auto">
+        <input type="password"
+               name="logpass"
+               class="form-style"
+               formControlName="password"
+               placeholder="Your Password"
+               id="logpass"
+               autocomplete="off">
+        <i class="input-icon uil uil-lock-alt"></i>
+        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          Contraseña es requerida.
+        </div>
+      </div>
+      <div class="form-group mt-2 col-span-2 sm:col-auto">
+        <input type="password"
+               name="confirmPassword"
+               class="form-style"
+               formControlName="confirmPassword"
+               placeholder="Your Confirm Password"
+               id="logConfirmPass"
+               autocomplete="off">
+        <i class="input-icon uil uil-lock-alt"></i>
+        <div *ngIf="loginForm.hasError('passwordMismatch') && loginForm.get('confirmPassword')?.touched">
+          Las contraseñas no coinciden.
+        </div>
+      </div>
+      <div class="justify-center items-center mt-2 grid grid-cols-2">
+        <label class="text-white">Remember me</label>
+        <input type="checkbox"
+               name="rememberMe"
+               formControlName="rememberMe"
+               id="rememberMe"
+               autocomplete="off">
+      </div>
+      <div class="mt-4 col-span-2">
+        <app-button label="LogIn" type="submit"></app-button>
+      </div>
+    </form>
   </div>
 </div>

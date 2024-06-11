@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeLayoutComponent } from './home-layout/home-layout.component'
 import { DashboardComponent } from '../pages/dashboard/dashboard.component'
 import { AuthComponent } from '../pages/auth/auth.component'
+import { authGuard } from '../guards/auth.guard'
+import { SettingsComponent } from '../pages/settings/settings.component'
 
 const routes: Routes = [
   {
@@ -12,8 +14,13 @@ const routes: Routes = [
       {
         path: '',
         component: DashboardComponent
+      },
+      {
+        path: 'profile',
+        component: SettingsComponent
       }
-    ]
+    ],
+    canActivate: [authGuard]
   },
   {
     path: '',

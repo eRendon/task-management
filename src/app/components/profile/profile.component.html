@@ -1,0 +1,66 @@
+<main class="flex-1 flex items-center justify-center bg-gray-100 dark:bg-gray-950 p-8 h-screen">
+  <div *ngIf="user" class="max-w-3xl mx-auto bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden">
+    <div class="grid md:grid-cols-2">
+      <div class="bg-gray-900 text-white p-8 flex flex-col items-center justify-center">
+        <span
+          class="relative bg-gray-300 flex shrink-0 overflow-hidden rounded-full h-24 w-24 mb-4">
+          <span
+            class="flex h-full w-full items-center justify-center rounded-full bg-muted">
+            ER
+          </span>
+        </span>
+        <div class="text-xl font-medium">
+          {{ user.userName }}
+        </div>
+        <div class="text-sm text-gray-400">
+          {{ user.email }}
+        </div>
+        <div class="text-sm text-gray-400 mt-2">
+          Medellin, CO
+        </div>
+      </div>
+      <div class="p-8 grid gap-6">
+        <div>
+          <label
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            for="bio">
+            Bio
+          </label>
+          <textarea
+            [value]="bio"
+            disabled
+            class="flex min-h-[80px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 mt-1 w-full"
+            id="bio" rows="3" placeholder="Tell us a little about yourself...">
+
+          </textarea>
+        </div>
+        <div>
+          <label
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            for="twitter">
+            LinkedIn
+          </label>
+          <input
+            disabled
+            class="flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 mt-1 w-full"
+            id="twitter"
+            value="https://www.linkedin.com/in/edwin-alexander-rendon-cadavid-271030207/"
+            placeholder="@username">
+        </div>
+        <div>
+          <label
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            for="github">
+            GitHub
+          </label>
+          <input
+            disabled
+            value="https://github.com/eRendon"
+            class="flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 mt-1 w-full"
+            id="github"
+            placeholder="username">
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

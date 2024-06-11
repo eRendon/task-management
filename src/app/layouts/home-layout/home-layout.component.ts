@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-layout.component.scss']
 })
 export class HomeLayoutComponent {
-
+  isShowSidebar: boolean = false
+  showSideBar(event: boolean): void {
+    this.isShowSidebar = event
+  }
 }

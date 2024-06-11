@@ -4,6 +4,7 @@ import { LayoutModuleRoutingModule } from './layout-module-routing.module';
 import { HeaderLayoutComponent } from './header-layout/header-layout.component';
 import { HomeLayoutComponent } from './home-layout/home-layout.component';
 import { SidebarLayoutComponent } from './sidebar-layout/sidebar-layout.component'
+import { ComponentsModule } from '../components/components.module'
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { SidebarLayoutComponent } from './sidebar-layout/sidebar-layout.componen
   imports: [
     CommonModule,
     LayoutModuleRoutingModule,
+    ComponentsModule
   ]
 })
 export class LayoutModuleModule { }

@@ -1,1 +1,67 @@
-<p>register works!</p>
+<div class="center-wrap">
+  <div class="section text-center">
+    <h4 class="mb-4 pb-3 text-white">Sign Up</h4>
+    <form [formGroup]="registerForm" (ngSubmit)="register()" class="grid lg:grid-cols-2 gap-3">
+      <div class="form-group">
+        <input type="text"
+               name="logname"
+               formControlName="userName"
+               class="form-style"
+               placeholder="Your Full Name"
+               id="logname"
+               autocomplete="off">
+        <i class="input-icon uil uil-user"></i>
+        <div *ngIf="registerForm.get('userName')?.invalid && registerForm.get('userName')?.touched">
+          Nombre de usuario es requerido.
+        </div>
+      </div>
+      <div class="form-group mt-2">
+        <input type="email"
+               name="logemail"
+               class="form-style"
+               placeholder="Your Email"
+               formControlName="email"
+               id="logemail"
+               autocomplete="off">
+        <i class="input-icon uil uil-at"></i>
+        <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+          Email es requerido y debe ser válido.
+        </div>
+      </div>
+      <div class="form-group mt-2">
+        <input type="password"
+               name="logpass"
+               class="form-style"
+               formControlName="password"
+               placeholder="Your Password"
+               id="logpass"
+               autocomplete="off">
+        <i class="input-icon uil uil-lock-alt"></i>
+        <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+          Contraseña es requerida.
+        </div>
+      </div>
+      <div class="form-group mt-2">
+        <input type="password"
+               name="confirmPassword"
+               class="form-style"
+               formControlName="confirmPassword"
+               placeholder="Your Confirm Password"
+               id="logConfirmPassword"
+               autocomplete="off">
+        <i class="input-icon uil uil-lock-alt"></i>
+        <div *ngIf="registerForm.hasError('passwordMismatch') && registerForm.get('confirmPassword')?.touched">
+          Las contraseñas no coinciden.
+        </div>
+      </div>
+      <div class="mt-4">
+        <app-button type="submit" label="Registrarse"></app-button>
+      </div>
+      <p class="mt-4 mb-4 text-center">
+        <a (click)="changeToLogin()" class="link text-white cursor-pointer">
+          Do you already have an account?
+        </a>
+      </p>
+    </form>
+  </div>
+</div>

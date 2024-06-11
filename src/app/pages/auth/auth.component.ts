@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent {
-
+  isRegister: boolean = false
+  changeToLogin(): void {
+    this.isRegister = false
+  }
 }

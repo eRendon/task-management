@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderLayoutComponent } from './header-layout.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing'
+import { ButtonComponent } from '../../components/atomic/button/button.component'
 
 describe('HeaderLayoutComponent', () => {
   let component: HeaderLayoutComponent;
@@ -8,7 +10,8 @@ describe('HeaderLayoutComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [HeaderLayoutComponent]
+      declarations: [HeaderLayoutComponent,ButtonComponent],
+      imports: [HttpClientTestingModule]
     });
     fixture = TestBed.createComponent(HeaderLayoutComponent);
     component = fixture.componentInstance;

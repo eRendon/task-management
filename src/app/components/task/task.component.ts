@@ -1,19 +1,18 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { AfterViewInit, Component, OnInit, ViewContainerRef } from '@angular/core'
 import { ITask } from '../../Interfaces/ITask'
+import { TaskService } from '../../services/task/task.service'
+import { ModalService } from '../../services/modal/modal.service'
+import { TaskDetailComponent } from '../task-detail/task-detail.component'
+import { ModalComponent } from '../shared/modal/modal.component'
+import { taskStates } from '../../const/taskStates'
 
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.scss']
 })
-export class TaskComponent implements OnInit {
-  // @Input() tasks!: ITask[]
-  tasks: ITask[] = [
-    { id: 1, title: 'Task 1', description: 'Description 1', state: 'todo' },
-    { id: 2, title: 'Task 2', description: 'Description 2', state: 'in-progress' },
-    { id: 3, title: 'Task 3', description: 'Description 3', state: 'done' },
-    // more tasks
-  ];
+export class TaskComponent implements OnInit, AfterViewInit {
+  tasks: ITask[] = []
 
   tasksByState: { [key: string]: ITask[] } = {
     'todo': [],
@@ -21,17 +20,46 @@ export class TaskComponent implements OnInit {
     'done': []
   }
 
-  taskStatus = ['todo', 'in-progress', 'done']
-  ngOnInit () {
-    this.organizeTasksByState()
+  taskStatus = taskStates
+
+  constructor (private taskService: TaskService,
+               private modalService: ModalService,
+               private viewContainerRef: ViewContainerRef
+  ) {}
+  ngOnInit (): void {
+    this.taskService.$getTasks().subscribe({
+      next: tasks => {
+        this.tasks = tasks
+        console.log(tasks)
+        this.organizeTasksByState()
+      }
+    })
+  }
+
+  ngAfterViewInit (): void {
+    this.modalService.setRootViewContainerRef(this.viewContainerRef)
   }
 
   organizeTasksByState(): void {
+    const tasksByState: { [key: string]: ITask[] } = {
+      'todo': [],
+      'in-progress': [],
+      'done': []
+    };
+
     this.tasks.forEach(task => {
-      if (!this.tasksByState[task.state!]) {
-        this.tasksByState[task.state!] = [];
+      if (!tasksByState[task.state!]) {
+        tasksByState[task.state!] = [];
       }
-      this.tasksByState[task.state!].push(task);
+      if (!tasksByState[task.state!].some(t => t.id === task.id)) {
+        tasksByState[task.state!].push(task);
+      }
     });
+    console.log(tasksByState)
+    this.tasksByState = tasksByState
+  }
+
+  createTask(): void {
+    this.modalService.open(ModalComponent,TaskDetailComponent)
   }
 }

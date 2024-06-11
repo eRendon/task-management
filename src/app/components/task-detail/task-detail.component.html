@@ -1,0 +1,59 @@
+<div class="mt-8">
+  <h2 class="text-lg font-semibold mb-4">Create New Task</h2>
+  <form [formGroup]="taskForm" (submit)="verifyAction()" class="bg-white dark:bg-gray-950 p-4 rounded-md shadow-sm">
+    <div *ngIf="data" >
+      <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+        Change state
+      </label>
+      <div>
+        <app-task-states (onSelectState)="changeState($event)"
+                         [state]="taskForm.get('state')!.value"></app-task-states>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div>
+        <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+               for="title">
+          Title
+        </label>
+        <input formControlName="title"
+               class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+               id="title"
+               placeholder="Enter task title">
+        <div class="text-red-500" *ngIf="taskForm.get('title')?.invalid && taskForm.get('title')?.touched">
+          Title is required.
+        </div>
+      </div>
+      <div>
+        <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+               for="dueDate">
+          Due Date
+        </label>
+        <input class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+               formControlName="dueDate"
+               id="dueDate"
+               type="date">
+        <div class="text-red-500" *ngIf="taskForm.get('dueDate')?.invalid && taskForm.get('dueDate')?.touched">
+          Date is required.
+        </div>
+      </div>
+      <div class="col-span-1 sm:col-span-2">
+        <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+               for="description">
+          Description
+        </label>
+        <textarea class="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  id="description"
+                  formControlName="description"
+                  placeholder="Enter task description">
+        </textarea>
+        <div class="text-red-500" *ngIf="taskForm.get('description')?.invalid && taskForm.get('description')?.touched">
+          Description is required.
+        </div>
+      </div>
+    </div>
+    <div class="mt-4 flex justify-end">
+      <app-button [label]="data ? 'Update Task' : 'Create Task'" type="submit" styles="bg-gray-900"></app-button>
+    </div>
+  </form>
+</div>
